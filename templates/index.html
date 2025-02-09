@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Classification</h1>
+
+        <!-- Upload and Label Section -->
+        <section class="upload-section">
+            <h2>Upload Image for Training</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" name="file" id="file-input" required>
+                <input type="text" name="label" id="label-input" placeholder="Enter Label" required>
+                <button type="submit">Upload</button>
+            </form>
+            <p id="upload-status"></p>
+        </section>
+
+        <!-- Webcam Capture -->
+        <section class="webcam-section">
+            <h2>Capture Image from Webcam</h2>
+            <video id="webcam" autoplay></video>
+            <button id="capture-btn">Capture</button>
+            <canvas id="canvas"></canvas>
+            <button id="upload-captured-btn">Upload Captured Image</button>
+        </section>
+
+        <!-- Train Model -->
+        <section class="train-section">
+            <h2>Train Model</h2>
+            <button id="train-btn">Train Model</button>
+            <p id="train-status"></p>
+        </section>
+
+        <!-- Predict Image -->
+        <section class="predict-section">
+            <h2>Upload Image for Prediction</h2>
+            <form id="predict-form">
+                <input type="file" id="predict-file" required>
+                <button type="button" id="predict-btn">Predict</button>
+            </form>
+            <p id="prediction-result"></p>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
